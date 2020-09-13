@@ -10,3 +10,19 @@
 // +----------------------------------------------------------------------
 
 // 应用公共文件
+
+//status状态显示
+function status($status){
+    switch ($status){
+        case 1:
+            $str = "<span class='label label-success radius'>正常</span>";
+        break;
+        case 0:
+            $str = "<span class='label label-success radius'>待审</span>";
+        break;
+        case -1:
+            $str = "<span class='label label-success radius'>删除</span>";
+        break;
+    }
+    return $str;
+}

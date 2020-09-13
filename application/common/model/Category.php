@@ -13,17 +13,18 @@ class Category extends Model
     }
     
     //获取分类数据
-    public function getFirstCategory($parent_id = 0)
+    public function getCategorys(array $condition) 
     {
-        $date = [
-            'parent_id' => $parent_id,
-            'status' => 1
-        ];
+        // $date = [
+        //     'parent_id' => $parent_id,
+        //     'status' => 1
+        // ];
         $order = [
             'id' => 'desc',
         ];
-        return $this->where($date)
+        return $this->where($condition)
              ->order($order)
              ->select();
+        // echo $this->getLastSql();
     }
 }
