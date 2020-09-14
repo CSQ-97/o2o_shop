@@ -22,25 +22,38 @@ function o2o_del(url){
 $('.listorder input').blur(function() {
     // 编写我们的抛送的逻辑
     //获取主键id
-    var id = $(this).attr('attr-id');
-    // 获取排序的值
+    var id = $(this).attr('id-attr');
     var listorder = $(this).val();
-
     var postData = {
-
-        'id' : id,
+        'id':id,
         'listorder':listorder,
-    };
+    }
     var url = SCOPE.listorder_url;
-    // 抛送http
-    $.post(url, postData, function(result){
-        // 逻辑
-        if(result.code == 1) {
-            location.href=result.data;
-        }else {
+    $.post(url,postData,function(result){
+        if(result.code == 1){
+            location.href = result.data;
+        }else{
             alert(result.msg);
         }
-    },"json");
+    },"json")
+    // // 获取排序的值                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    // var listorder = $(this).val();
+
+    // var postData = {                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+
+    //     'id' : id,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               
+    //     'listorder':listorder,
+    // };
+    // var url = SCOPE.listorder_url;
+    // // 抛送http
+// $.post(url, postData, function(result){                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+    //     // 逻辑
+    //     if(result.code == 1) {
+    //         location.href=result.data;
+    //     }else {
+    //         alert(result.msg);
+    //     }
+    // },"json");
 
 
 });

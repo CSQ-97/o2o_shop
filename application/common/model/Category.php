@@ -20,6 +20,7 @@ class Category extends Model
         //     'status' => 1
         // ];
         $order = [
+            'listorder' => 'desc',
             'id' => 'desc',
         ];
         return $this->where($condition)
