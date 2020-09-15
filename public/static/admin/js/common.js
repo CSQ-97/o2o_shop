@@ -65,9 +65,9 @@ $(".cityId").change(function(){
     postData = {'id':city_id};
     $.post(url,postData,function(result){
         //相关的业务处理
-        if(result.status == 1) {
+        if(result.code == 1) {
             // 将信息填充到html中
-            data = result.data;
+            let data = result.data;
             city_html = "";
             $(data).each(function(i){
                 city_html += "<option value='"+this.id+"'>"+this.name+"</option>";
