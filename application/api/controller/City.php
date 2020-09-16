@@ -33,4 +33,28 @@ class City extends Controller
             return $result;
         }
    }
+
+   public function getSecondCategory(){
+       $categoryModel = model('Category');
+        $parent_id = input('post.id');
+        if(!$parent_id){
+            $this->error('id不合法');
+        }
+        $data = $categoryModel->getCategorys(['parent_id' => $parent_id]);
+        if($data){
+            $result = [
+                'code' => 1,
+                'data' => $data,
+                'msg' => 'success'
+            ];
+            return $result;
+        }else{
+            $result = [
+                'code' => 0,
+                'data' => $data,
+                'msg' => '数据错误'
+            ];
+            return $result;
+        }
+    }
 }

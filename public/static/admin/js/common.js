@@ -88,7 +88,7 @@ $(".categoryId").change(function(){
     postData = {'id':category_id};
     $.post(url,postData,function(result){
         //相关的业务处理
-        if(result.status == 1) {
+        if(result.code == 1) {
             data = result.data;
             category_html = "";
             $(data).each(function(i){
@@ -96,7 +96,7 @@ $(".categoryId").change(function(){
                 category_html += '<label for="checkbox-moban">&nbsp;</label>';
             });
             $('.se_category_id').html(category_html);
-        }else if(result.status == 0) {
+        }else if(result.code == 0) {
             $('.se_category_id').html('');
         }
     }, 'json');
